@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/rockFragment"
+        android:title="@string/rock_music"
+
+        />
+    <item
+        android:id="@+id/popFragment"
+        android:title="@string/pop_music"/>
+    <item
+        android:id="@+id/classicFragment"
+        android:title="@string/classic_music"/>
+
+</menu>

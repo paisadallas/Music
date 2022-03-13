@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/rockFragment">
+    <fragment
+        android:id="@+id/classicFragment"
+        android:name="com.john.music.ClassicFragment"
+        android:label="fragment_classic"
+        tools:layout="@layout/fragment_classic" />
+    <fragment
+        android:id="@+id/popFragment"
+        android:name="com.john.music.PopFragment"
+        android:label="fragment_pop"
+        tools:layout="@layout/fragment_pop" />
+    <fragment
+        android:id="@+id/rockFragment"
+        android:name="com.john.music.RockFragment"
+        android:label="fragment_rock"
+        tools:layout="@layout/fragment_rock" />
+</navigation>
