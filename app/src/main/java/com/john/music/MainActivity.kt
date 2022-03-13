@@ -8,5 +8,19 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
     }
-    //hello
+
+    //API
+
+    //https://itunes.apple.com/search?term=rock&amp;media=music&amp;entity=song&amp;limit=50
+    //https://itunes.apple.com/search?term=classick&amp;media=music&amp;entity=song&amp;limit=50
+    //https://itunes.apple.com/search?term=pop&amp;media=music&amp;entity=song&amp;limit=50
+
+
+//    "artistName":
+//    "collectionName":
+//    "artworkUrl60":
+//    "trackPrice":
+
+
+
 }
