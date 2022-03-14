@@ -15,7 +15,7 @@ class TrackAdapter (
         ):RecyclerView.Adapter<TrackAdapter.TrackHolder>(){
 
     fun updateTrack(track: Track){
-        trackList.add(0,track)
+        trackList.add(track)
         notifyItemInserted(0)
         notifyDataSetChanged()
     }
