@@ -13,6 +13,7 @@ import com.john.music.databinding.FragmentRockBinding
 import com.john.music.model.Track
 import com.john.music.model.TracksItem
 import com.john.music.res.TracksAPI
+import com.john.music.res.TracksServices
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -97,7 +98,7 @@ class RockFragment : Fragment() {
 
         //trackAdapter.updateTrack(simpleObjet)
 
-        TracksAPI.retrofitServices.getTracks().enqueue(object : Callback<TracksItem>{
+        TracksServices.retrofitServices.getTracks().enqueue(object : Callback<TracksItem>{
 
             override fun onResponse(call: Call<TracksItem>, response: Response<TracksItem>) {
                 if (response.isSuccessful){
