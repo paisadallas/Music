@@ -8,6 +8,7 @@
         <entry key="app/src/main/res/layout/fragment_menu.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_pop.xml" value="0.16302083333333334" />
         <entry key="app/src/main/res/layout/fragment_rock.xml" value="0.16302083333333334" />
+        <entry key="app/src/main/res/layout/track_item.xml" value="0.335" />
         <entry key="app/src/main/res/menu/navigation_menu.xml" value="0.16302083333333334" />
       </map>
     </option>

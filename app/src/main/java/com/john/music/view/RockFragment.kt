@@ -1,10 +1,18 @@
-package com.john.music
+package com.john.music.view
 
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.john.music.R
+import com.john.music.model.TracksItem
+import com.john.music.res.TracksAPI
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 // TODO: Rename parameter arguments, choose names that match
 // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -20,6 +28,8 @@ class RockFragment : Fragment() {
     // TODO: Rename and change types of parameters
     private var param1: String? = null
     private var param2: String? = null
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,6 +47,34 @@ class RockFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_rock, container, false)
     }
 
+    override fun onResume() {
+        super.onResume()
+
+        TracksAPI.retrofitServices.getTracks().enqueue(object : Callback<TracksItem>{
+
+            override fun onResponse(call: Call<TracksItem>, response: Response<TracksItem>) {
+                if (response.isSuccessful){
+
+                    Log.d("Error","succestul")
+                    Log.d("Error",response.toString())
+                    //Log.d("Error",)
+                    response.body()?.let {
+                       val yo = TracksItem(50,it.tracks)
+                        Log.d("Error",yo.tracks[0].artistName)
+                    }
+                }
+            }
+
+
+            override fun onFailure(call: Call<TracksItem>, t: Throwable) {
+                Log.d("Error","error")
+            }
+
+
+
+        }
+        )
+    }
     companion object {
         /**
          * Use this factory method to create a new instance of
@@ -57,3 +95,4 @@ class RockFragment : Fragment() {
             }
     }
 }
+
