@@ -14,11 +14,6 @@ interface TracksAPI {
 
     companion object{
        const val  BASE_URL = "https://itunes.apple.com/"
-       var  retrofitServices =
-                Retrofit.Builder()
-                    .baseUrl(BASE_URL)
-                    .addConverterFactory(GsonConverterFactory.create())
-                    .build()
-                    .create(TracksAPI::class.java)
+
     }
 }
