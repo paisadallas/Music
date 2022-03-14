@@ -114,6 +114,7 @@ class RockFragment : Fragment() {
 
                             trackAdapter.updateTrack(yo.tracks[i])
                         }
+                     //   trackAdapter.updateTrack(it.tracks)
                     }
                 }
             }
