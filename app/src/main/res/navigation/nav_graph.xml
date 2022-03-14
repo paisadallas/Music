@@ -6,17 +6,17 @@
     app:startDestination="@id/rockFragment">
     <fragment
         android:id="@+id/classicFragment"
-        android:name="com.john.music.ClassicFragment"
+        android:name="com.john.music.view.ClassicFragment"
         android:label="fragment_classic"
         tools:layout="@layout/fragment_classic" />
     <fragment
         android:id="@+id/popFragment"
-        android:name="com.john.music.PopFragment"
+        android:name="com.john.music.view.PopFragment"
         android:label="fragment_pop"
         tools:layout="@layout/fragment_pop" />
     <fragment
         android:id="@+id/rockFragment"
-        android:name="com.john.music.RockFragment"
+        android:name="com.john.music.view.RockFragment"
         android:label="fragment_rock"
         tools:layout="@layout/fragment_rock" />
 </navigation>

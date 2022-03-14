@@ -6,11 +6,9 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.john.music.databinding.ActivityMainBinding
 
-
 class MainActivity : AppCompatActivity() {
 
-
-    val binding by lazy {
+    private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
    }
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,12 +29,9 @@ class MainActivity : AppCompatActivity() {
     //https://itunes.apple.com/search?term=classick&amp;media=music&amp;entity=song&amp;limit=50
     //https://itunes.apple.com/search?term=pop&amp;media=music&amp;entity=song&amp;limit=50
 
-
 //    "artistName":
 //    "collectionName":
 //    "artworkUrl60":
 //    "trackPrice":
-
-
 
 }
