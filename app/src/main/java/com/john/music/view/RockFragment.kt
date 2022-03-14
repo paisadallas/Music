@@ -6,7 +6,11 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.john.music.R
+import com.john.music.adapter.TrackAdapter
+import com.john.music.databinding.FragmentRockBinding
+import com.john.music.model.Track
 import com.john.music.model.TracksItem
 import com.john.music.res.TracksAPI
 import retrofit2.Call
@@ -29,7 +33,44 @@ class RockFragment : Fragment() {
     private var param1: String? = null
     private var param2: String? = null
 
+  private val binding by lazy {
+      FragmentRockBinding.inflate(layoutInflater)
+  }
 
+    val trackAdapter by lazy {
+        TrackAdapter()
+    }
+    var simpleObjet:Track =
+        Track(
+     486597,
+     "169003304",
+     "169003415",
+     "Journey",
+    "Greatest Hits",
+    "Don't Stop Believin'",
+     "Greatest Hits",
+     "Don't Stop Believin'",
+     80,
+     "https://music.apple.com/us/album/dont-stop-believin/169003304?i=169003415&uo=4",
+     9.9,
+     "https://audio-ssl.itunes.apple.com/itunes-assets/AudioPreview125/v4/e4/6c/ad/e46cad13-317a-3074-8d0f-a41af0bb2437/mzaf_5207796602846861401.plus.aac.p.m4a",
+     "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/01/69/5f/01695f6c-541d-faef-ac67-d1033b11c79a/source/30x30bb.jpg",
+    "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/01/69/5f/01695f6c-541d-faef-ac67-d1033b11c79a/source/60x60bb.jpg",
+     "https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/01/69/5f/01695f6c-541d-faef-ac67-d1033b11c79a/source/100x100bb.jpg",
+     2,
+     1,
+     true,
+     "notExplicit",
+     "notExplicit",
+     "1",
+    "1",
+     "16",
+    2,
+     "250880",
+    909,
+     "USD",
+     98,
+     34.0,9,"","")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,12 +84,18 @@ class RockFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_rock, container, false)
+
+        binding.rvData.apply {
+            layoutManager = LinearLayoutManager(requireContext(),LinearLayoutManager.VERTICAL,false)
+            adapter = trackAdapter
+        }
+        return (binding.root)
     }
 
     override fun onResume() {
         super.onResume()
+
+        //trackAdapter.updateTrack(simpleObjet)
 
         TracksAPI.retrofitServices.getTracks().enqueue(object : Callback<TracksItem>{
 
@@ -61,6 +108,12 @@ class RockFragment : Fragment() {
                     response.body()?.let {
                        val yo = TracksItem(50,it.tracks)
                         Log.d("Error",yo.tracks[0].artistName)
+
+                        //Inflate layout
+                        for (i in 0..49){
+
+                            trackAdapter.updateTrack(yo.tracks[i])
+                        }
                     }
                 }
             }

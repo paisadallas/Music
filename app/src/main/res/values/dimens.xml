@@ -2,8 +2,10 @@
 <resources>
     <dimen name="menu_height">60dp</dimen>
     <dimen name="margin_image_track">5dp</dimen>
-    <dimen name="margin_price">15dp</dimen>
+    <dimen name="margin_price">10dp</dimen>
     <dimen name="margin_title">12dp</dimen>
     <dimen name="margin_song">12dp</dimen>
     <dimen name="elevator_card">10dp</dimen>
+    <dimen name="margin_card">3dp</dimen>
+    <dimen name="size_song">15dp</dimen>
 </resources>
