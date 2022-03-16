@@ -20,8 +20,8 @@ object TracksServices {
 //Adding interceptors
     private val okHttpsClient by lazy{
         OkHttpClient.Builder()
-            .addInterceptor(httpLoggingInterceptor)
             .addInterceptor(NetworkInterceptor())
+            .addInterceptor(httpLoggingInterceptor)
             .connectTimeout(30,TimeUnit.SECONDS)
             .readTimeout(30,TimeUnit.SECONDS)
             .writeTimeout(30,TimeUnit.SECONDS)
