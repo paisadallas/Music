@@ -7,35 +7,32 @@ import android.net.NetworkCapabilities
 import android.net.NetworkRequest
 import android.util.Log
 import io.reactivex.subjects.BehaviorSubject
+import javax.inject.Inject
 
-class NetworkUtils(
-    private var context: Context?=null,
-    private val connectivityManager: ConnectivityManager? =
-        context?.getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager,
-    private val networkRequest: NetworkRequest = NetworkRequest.Builder()
-        .addCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-        .build()
+
+class NetworkUtils @Inject constructor(
+    private val connectivityManager: ConnectivityManager,
+    private val networkRequest: NetworkRequest
 ):ConnectivityManager.NetworkCallback() {
 
     var netWorkState:BehaviorSubject<Boolean> = BehaviorSubject.createDefault(isNetworkAvailable())
 
     private fun isNetworkAvailable(): Boolean {
-        connectivityManager?.getNetworkCapabilities(connectivityManager.activeNetwork)?.let {
-            if (it.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
-                || it.hasTransport(NetworkCapabilities.TRANSPORT_WIFI)) return  true
+        connectivityManager.getNetworkCapabilities(connectivityManager.activeNetwork)?.let {
+            return  it.hasCapability(NetworkCapabilities.NET_CAPABILITY_INTERNET)
         }
         return false
     }
 
     fun registerForNetworkState(){
         Log.d("MY_NETWORK","Disconnected_again")
-        connectivityManager?.registerNetworkCallback(networkRequest,this)
+        connectivityManager.registerNetworkCallback(networkRequest,this)
     }
 
     fun unRegisterForNetworkState(){
         Log.d("MY_NETWORK","Disconnected_again")
-        connectivityManager?.unregisterNetworkCallback(this)
-        context = null
+        connectivityManager.unregisterNetworkCallback(this)
+
     }
 
     override fun onAvailable(network: Network) {

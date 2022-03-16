@@ -7,6 +7,7 @@ import android.util.Log
 import com.john.music.model.Track
 import com.john.music.model.TracksItem
 import com.john.music.res.NetworkUtils
+import com.john.music.res.TracksAPI
 import com.john.music.res.TracksServices
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -14,15 +15,16 @@ import io.reactivex.schedulers.Schedulers
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import javax.inject.Inject
 
-class RockPresenter(
-    private var context: Context? = null,
-    private var viewContract: RockViewContract? = null,
-    private var disposable: CompositeDisposable = CompositeDisposable(),
-    private val networkUtils: NetworkUtils = NetworkUtils(context)
+class RockPresenter @Inject constructor(
+    private var disposable: CompositeDisposable,
+    private val networkUtils: NetworkUtils,
+    private val tracksApi : TracksAPI
 
 ) : RockPresenterContract {
 
+    var viewContract: RockViewContract? = null
 
     override fun getRock() {
         //Loading
@@ -47,7 +49,7 @@ class RockPresenter(
     }
 
     private fun doNetworkCall() {
-        TracksServices.retrofitServices.getTracks()
+        tracksApi.getTracks()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
@@ -73,7 +75,6 @@ class RockPresenter(
 
     override fun onDestroy() {
         networkUtils.unRegisterForNetworkState()
-        context = null
         viewContract = null
         disposable.dispose()
     }
