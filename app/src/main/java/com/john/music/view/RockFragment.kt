@@ -2,6 +2,7 @@ package com.john.music.view
 
 import android.app.AlertDialog
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -67,42 +68,13 @@ class RockFragment : Fragment(), RockViewContract {
         rockPresenter.checkNetwork()
         rockPresenter.getRock()
 
-
-        //trackAdapter.updateTrack(simpleObjet)
-/*
-        TracksServices.retrofitServices.getTracks().enqueue(object : Callback<TracksItem>{
-
-            override fun onResponse(call: Call<TracksItem>, response: Response<TracksItem>) {
-                if (response.isSuccessful){
-
-                    Log.d("Error","succestul")
-                    Log.d("Error",response.toString())
-                    //Log.d("Error",)
-                    response.body()?.let {
-                       val yo = TracksItem(50,it.tracks)
-                        Log.d("Error",yo.tracks[0].artistName)
-
-                        //Inflate layout
-                        for (i in 0..49){
-
-                            trackAdapter.updateTrack(yo.tracks[i])
-                        }
-                     //   trackAdapter.updateTrack(it.tracks)
-                    }
-                }
+        binding.swipereLayout.apply {
+            setOnRefreshListener {
+                Log.d("REFRESH", "Refreshin")
+                rockPresenter.getRock()
+                isRefreshing = false
             }
-
-
-            override fun onFailure(call: Call<TracksItem>, t: Throwable) {
-                Log.d("Error","error")
-            }
-
-
-
         }
-
-
-        )*/
     }
 
     override fun onDestroy() {

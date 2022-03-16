@@ -35,7 +35,7 @@ class RockPresenter(
                 if (network) {
                     doNetworkCall()
                 } else {
-                      viewContract?.rockError(Throwable("Error internet connection"))
+                    viewContract?.rockError(Throwable("Error internet connection"))
                 }
             },
                 {
