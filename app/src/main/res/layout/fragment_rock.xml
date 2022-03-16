@@ -5,6 +5,12 @@
     android:layout_height="match_parent"
     tools:context=".view.RockFragment">
 
+    <ProgressBar
+        android:id="@+id/pb_loading"
+        android:visibility="gone"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvData"
