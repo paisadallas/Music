@@ -5,6 +5,7 @@ import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.john.music.databinding.ActivityMainBinding
+import com.john.music.di.MusicApplication
 
 class MainActivity : AppCompatActivity() {
 
@@ -14,12 +15,14 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+     //   MusicApplication.musicComponent.inject(this)
+
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-        binding.buttonNavigation.setupWithNavController(navController)
+       binding.buttonNavigation.setupWithNavController(navController)
 
     }
 
