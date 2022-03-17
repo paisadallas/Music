@@ -13,6 +13,12 @@ interface TracksAPI {
     @GET("search?term=rock&amp;media=music&amp;entity=song&amp;limit=50")
     fun getTracks(): Single<TracksItem>
 
+    @GET("search?term=pop&amp;media=music&amp;entity=song&amp;limit=50")
+    fun getPopTracks(): Single<TracksItem>
+
+    @GET("search?term=classick&amp;media=music&amp;entity=song&amp;limit=50")
+    fun getClassicTracks(): Single<TracksItem>
+
     companion object{
        const val  BASE_URL = "https://itunes.apple.com/"
     }

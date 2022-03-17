@@ -40,7 +40,7 @@ class PopPresenter @Inject constructor(
     }
 
     private fun doNetworkCall() {
-        tracksApi.getTracks()
+        tracksApi.getPopTracks()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

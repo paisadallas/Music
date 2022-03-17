@@ -61,6 +61,13 @@ class PopFragment : Fragment() , PopViewContract {
         popPresenter.viewContract = this
         popPresenter.checkNetwork()
         popPresenter.getPop()
+
+        binding.swipereLayout.apply {
+            setOnRefreshListener {
+                popPresenter.getPop()
+                isRefreshing = false
+            }
+        }
     }
 
     companion object {
