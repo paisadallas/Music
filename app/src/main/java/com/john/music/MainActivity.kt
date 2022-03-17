@@ -5,7 +5,7 @@ import android.os.Bundle
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.john.music.databinding.ActivityMainBinding
-import com.john.music.di.MusicApplication
+//import com.john.music.di.MusicApplication
 
 class MainActivity : AppCompatActivity() {
 

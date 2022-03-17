@@ -16,5 +16,6 @@ class PresenterModule {
         networkUtils: NetworkUtils,
         tracksAPI: TracksAPI
     ):
-            RockPresenter = RockPresenter(disposable,networkUtils,tracksAPI)
+            RockPresenter = RockPresenter(disposable, networkUtils, tracksAPI)
+
 }
