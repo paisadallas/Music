@@ -27,7 +27,7 @@ class ApplicationModule(
     ): NetworkUtils {
         return  NetworkUtils(connectivityManager,networkRequest)
     }
-
+//hello
     @Provides
     fun providesConnectionManager(applicationContext: Context): ConnectivityManager =
         applicationContext.getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
