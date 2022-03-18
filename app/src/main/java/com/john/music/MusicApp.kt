@@ -5,7 +5,7 @@ import com.john.music.di.ApplicationModule
 import com.john.music.di.DaggerMusicComponent
 import com.john.music.di.MusicComponent
 
-class MusicApp:Application() {
+class MusicApp:Application(){
 
     override fun onCreate() {
         super.onCreate()
