@@ -7,20 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.john.music.MainActivity
 import com.john.music.MusicApp
-import com.john.music.R
 import com.john.music.adapter.TrackAdapter
 import com.john.music.databinding.FragmentPopBinding
-import com.john.music.di.DaggerMusicComponent
-import com.john.music.di.MusicComponent
 import com.john.music.model.Track
 import com.john.music.presenter.PopPresenter
 import com.john.music.presenter.PopViewContract
-import com.john.music.presenter.RockViewContract
-import dagger.android.DaggerActivity
 import javax.inject.Inject
-
 
 class PopFragment : Fragment() , PopViewContract {
 
