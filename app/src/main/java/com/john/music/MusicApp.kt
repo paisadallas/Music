@@ -5,6 +5,10 @@ import com.john.music.di.ApplicationModule
 import com.john.music.di.DaggerMusicComponent
 import com.john.music.di.MusicComponent
 
+/**
+ * Injecting
+ */
+
 class MusicApp:Application(){
 
     override fun onCreate() {
