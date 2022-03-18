@@ -10,7 +10,8 @@ import com.john.music.R
 import com.john.music.model.Track
 import com.squareup.picasso.Picasso
 
-class TrackAdapter (
+class TrackAdapter(
+    private val trackAdapterListener: TrackAdapterListener,
     private val trackList : MutableList<Track> = mutableListOf()
         ):RecyclerView.Adapter<TrackAdapter.TrackHolder>(){
 
@@ -28,6 +29,9 @@ class TrackAdapter (
     override fun onBindViewHolder(holder: TrackHolder, position: Int) {
         var data = trackList[position]
 
+        holder.itemView.setOnClickListener {
+            trackAdapterListener.playMusic(data.previewUrl)
+        }
         holder.bind(data)
     }
 

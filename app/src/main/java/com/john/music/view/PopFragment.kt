@@ -1,6 +1,7 @@
 package com.john.music.view
 
 import android.app.AlertDialog
+import android.content.Context
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.john.music.MusicApp
 import com.john.music.adapter.TrackAdapter
+import com.john.music.adapter.TrackAdapterListener
 import com.john.music.databinding.FragmentPopBinding
 import com.john.music.model.Track
 import com.john.music.presenter.PopPresenter
@@ -17,6 +19,7 @@ import javax.inject.Inject
 
 class PopFragment : Fragment() , PopViewContract {
 
+    private lateinit var trackAdapterListener: TrackAdapterListener
     @Inject
     lateinit var popPresenter : PopPresenter
     private val binding by lazy {
@@ -24,7 +27,12 @@ class PopFragment : Fragment() , PopViewContract {
     }
 
     private val trackAdapter by lazy {
-        TrackAdapter()
+        TrackAdapter(trackAdapterListener)
+    }
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        trackAdapterListener = activity as TrackAdapterListener
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,7 +41,7 @@ class PopFragment : Fragment() , PopViewContract {
         super.onCreate(savedInstanceState)
         MusicApp.musicComponent.inject(this)
        // MusicApp.musicComponent.inject(PopFragment)
-
+        trackAdapterListener.playMusic("hello")
     }
 
     override fun onCreateView(

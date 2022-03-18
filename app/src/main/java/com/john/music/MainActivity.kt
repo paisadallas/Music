@@ -1,40 +1,57 @@
 package com.john.music
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.content.Intent.ACTION_VIEW
+import android.net.Uri
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
+import com.john.music.adapter.TrackAdapterListener
 import com.john.music.databinding.ActivityMainBinding
-//import com.john.music.di.MusicApplication
+import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.schedulers.Schedulers
+import io.reactivex.subjects.BehaviorSubject
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), TrackAdapterListener {
 
     private val binding by lazy {
         ActivityMainBinding.inflate(layoutInflater)
-   }
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-     //   MusicApplication.musicComponent.inject(this)
-
 
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
         val navController = navHostFragment.navController
 
-       binding.buttonNavigation.setupWithNavController(navController)
+        binding.buttonNavigation.setupWithNavController(navController)
 
     }
 
-    //API
+    override fun playMusic(linkSong: String) {
 
-    //https://itunes.apple.com/search?term=rock&amp;media=music&amp;entity=song&amp;limit=50
-    //https://itunes.apple.com/search?term=classick&amp;media=music&amp;entity=song&amp;limit=50
-    //https://itunes.apple.com/search?term=pop&amp;media=music&amp;entity=song&amp;limit=50
+        var netWorkState: BehaviorSubject<Boolean> = BehaviorSubject.createDefault(true)
 
-//    "artistName":
-//    "collectionName":
-//    "artworkUrl60":
-//    "trackPrice":
+        netWorkState.subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe({
+
+                val intent = Intent()
+                intent.apply {
+                    action = ACTION_VIEW
+                    setDataAndType(Uri.parse(linkSong), "audio/*")
+                    startActivity(intent)
+                }
+
+            }, {
+                val toast = Toast.makeText(applicationContext, "Error", Toast.LENGTH_LONG)
+            }).apply {
+            }
+
+    }
 
 }
