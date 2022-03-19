@@ -9,6 +9,10 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * Services NO OPERATIONAL
+ * I don't delete it only for to know the implementation
+ */
 object TracksServices {
 
     private val httpLoggingInterceptor by lazy {

@@ -18,6 +18,10 @@ import com.john.music.presenter.ClassicPresenter
 import com.john.music.presenter.ClassicViewContract
 import javax.inject.Inject
 
+/**
+ *
+ */
+
 class ClassicFragment : Fragment(), ClassicViewContract {
 
     private lateinit var trackAdapterListener: TrackAdapterListener
@@ -39,7 +43,6 @@ class ClassicFragment : Fragment(), ClassicViewContract {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         MusicApp.musicComponent.inject(this)
-        trackAdapterListener.playMusic("hello")
     }
 
     override fun onCreateView(
@@ -54,7 +57,6 @@ class ClassicFragment : Fragment(), ClassicViewContract {
 
         return (binding.root)
     }
-
 
     override fun onResume() {
         super.onResume()

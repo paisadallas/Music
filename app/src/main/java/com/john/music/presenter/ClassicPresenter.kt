@@ -9,6 +9,15 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
 import javax.inject.Inject
 
+/**
+ * Presenter Classic music
+ *
+ * receiving three methods, CompositeDisposable, NetworkUtils and TracksApi
+ *
+ * Implementing two interfaces
+ * Classic View contract : View the actual state of internet connection
+ * Classic Present contract: Implementing on the fragment
+ */
 class ClassicPresenter @Inject constructor(
     private var disposable: CompositeDisposable,
     private val networkUtils: NetworkUtils,

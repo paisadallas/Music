@@ -32,6 +32,9 @@ class MainActivity : AppCompatActivity(), TrackAdapterListener {
 
     }
 
+    /**
+     * Listening the adapter for to play music
+     */
     override fun playMusic(linkSong: String) {
 
         var netWorkState: BehaviorSubject<Boolean> = BehaviorSubject.createDefault(true)

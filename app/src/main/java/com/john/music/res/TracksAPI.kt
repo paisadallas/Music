@@ -7,6 +7,13 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import retrofit2.http.GET
 
+/**
+ * Getting three different API
+ * ROCK
+ * CLASSIC
+ * POP
+ */
+
 interface TracksAPI {
     //https://itunes.apple.com/search?term=rock&amp;media=music&amp;entity=song&amp;limit=50
 

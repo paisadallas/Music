@@ -9,7 +9,10 @@ import android.util.Log
 import io.reactivex.subjects.BehaviorSubject
 import javax.inject.Inject
 
-
+/**
+ * Checking the internet connection state
+ * Subject that emits the most recent item it has observed and all subsequent observed items to each subscribed Observer.
+ */
 class NetworkUtils @Inject constructor(
     private val connectivityManager: ConnectivityManager,
     private val networkRequest: NetworkRequest
@@ -25,12 +28,10 @@ class NetworkUtils @Inject constructor(
     }
 
     fun registerForNetworkState(){
-        Log.d("MY_NETWORK","Disconnected_again")
         connectivityManager.registerNetworkCallback(networkRequest,this)
     }
 
     fun unRegisterForNetworkState(){
-        Log.d("MY_NETWORK","Disconnected_again")
         connectivityManager.unregisterNetworkCallback(this)
 
     }

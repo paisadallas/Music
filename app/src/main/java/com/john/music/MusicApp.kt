@@ -6,7 +6,7 @@ import com.john.music.di.DaggerMusicComponent
 import com.john.music.di.MusicComponent
 
 /**
- * Injecting
+ * Injecting for MainActivity
  */
 
 class MusicApp:Application(){

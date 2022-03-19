@@ -10,6 +10,9 @@ import com.john.music.R
 import com.john.music.model.Track
 import com.squareup.picasso.Picasso
 
+/**
+ * Adapter and listener for of track item
+ */
 class TrackAdapter(
     private val trackAdapterListener: TrackAdapterListener,
     private val trackList : MutableList<Track> = mutableListOf()

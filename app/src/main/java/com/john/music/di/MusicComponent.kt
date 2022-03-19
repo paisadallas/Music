@@ -7,6 +7,9 @@ import com.john.music.view.PopFragment
 import com.john.music.view.RockFragment
 import dagger.Component
 
+/**
+ * Declaring the modules for be inject
+ */
 @Component(
     modules = [
         ApplicationModule::class,

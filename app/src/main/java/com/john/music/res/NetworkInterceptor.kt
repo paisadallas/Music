@@ -7,6 +7,8 @@ import okhttp3.Response
 /**
  * Checking the API connection
  *
+ * NO OPERATIONAL
+ *
  */
 
 class NetworkInterceptor:Interceptor {

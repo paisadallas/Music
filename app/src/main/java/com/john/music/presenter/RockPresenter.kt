@@ -1,22 +1,23 @@
 package com.john.music.presenter
 
-import android.content.Context
-import android.net.ConnectivityManager
-import android.net.NetworkCapabilities
-import android.util.Log
 import com.john.music.model.Track
 import com.john.music.model.TracksItem
 import com.john.music.res.NetworkUtils
 import com.john.music.res.TracksAPI
-import com.john.music.res.TracksServices
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import javax.inject.Inject
 
+/**
+ * Presenter Rock music
+ *
+ * receiving three methods, CompositeDisposable, NetworkUtils and TracksApi
+ *
+ * Implementing two interfaces
+ * Pop View contract : View the actual state of internet connection
+ * Pop Present contract: Implementing on the fragment
+ */
 class RockPresenter @Inject constructor(
     private var disposable: CompositeDisposable,
     private val networkUtils: NetworkUtils,

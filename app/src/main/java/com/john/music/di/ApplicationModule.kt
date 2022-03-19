@@ -9,6 +9,10 @@ import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
 
+/**
+ * Injecting methods for Network Connection
+ */
+
 @Module
 class ApplicationModule(
     private val applicationContext: Context

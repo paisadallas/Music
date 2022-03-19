@@ -3,6 +3,9 @@ package com.john.music.model
 
 import com.google.gson.annotations.SerializedName
 
+/**
+ * API Class
+ */
 data class Track(
     @SerializedName("artistId")
     val artistId: Int,

@@ -7,6 +7,11 @@ import dagger.Module
 import dagger.Provides
 import io.reactivex.disposables.CompositeDisposable
 
+/**
+ * Provides methods for be inject
+ * Check network
+ * Check API
+ */
 @Module
 class PresenterModule {
 

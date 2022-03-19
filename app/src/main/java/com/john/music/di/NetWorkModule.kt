@@ -12,6 +12,11 @@ import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
+/**
+ * Provides of API methods
+ * Checking internet connection
+ * Time request
+ */
 @Module
 class NetWorkModule {
 
