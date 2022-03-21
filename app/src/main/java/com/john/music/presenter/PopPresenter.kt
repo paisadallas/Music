@@ -1,9 +1,13 @@
 package com.john.music.presenter
 
+import androidx.fragment.app.viewModels
+import com.john.music.data.Song
 import com.john.music.model.Track
 import com.john.music.model.TracksItem
 import com.john.music.res.NetworkUtils
 import com.john.music.res.TracksAPI
+import com.john.music.view.ui.SongViewModel
+import com.john.music.view.ui.ViewModelFactory
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
@@ -25,7 +29,12 @@ class PopPresenter @Inject constructor(
     private val tracksApi: TracksAPI
 ) : PopPresenterContract {
 
+
+
+
     var viewContract: PopViewContract? = null
+
+    var mySong = Song(1,"rice","milk","10.0","nn","pop")
 
     override fun getPop() {
         viewContract?.popLoading(true)
@@ -55,10 +64,12 @@ class PopPresenter @Inject constructor(
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    val track = TracksItem(50, it.tracks)
-                    for (i in 0..49) {
-                        viewContract?.popSuccessfull(track.tracks[i])
-                    }
+                  //  val track = TracksItem(50, it.tracks)
+//                    for (i in 0..49) {
+//                        viewContract?.popSuccessfull(track.tracks[i])
+//                    }
+                    viewContract?.popSuccessfull(mySong)
+
 
                 },
                 {
@@ -82,7 +93,7 @@ class PopPresenter @Inject constructor(
 
 interface PopViewContract {
     fun popLoading(isLoading: Boolean)
-    fun popSuccessfull(track: Track)
+    fun popSuccessfull(song: Song)
     fun popError(throwable: Throwable)
 }
 

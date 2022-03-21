@@ -5,11 +5,23 @@
     android:layout_height="match_parent"
     tools:context=".view.PopFragment">
 
+    <LinearLayout
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+
     <ProgressBar
         android:id="@+id/pb_loading"
         android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
+
+    <Button
+        android:id="@+id/bt_update"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
 
     <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
         android:id="@+id/swipere_layout"
@@ -23,4 +35,5 @@
             android:layout_height="match_parent" />
     </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
+    </LinearLayout>
 </FrameLayout>
